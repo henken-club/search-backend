@@ -14,8 +14,4 @@ export class MeiliSearchService {
   ) {
     this.client = new MeiliSearch({host: this.config.host});
   }
-
-  addDocument<T extends {id: string}>(index: string, document: T) {
-    return this.client.index(index).updateDocuments([document]);
-  }
 }
