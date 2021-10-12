@@ -19,15 +19,15 @@ export class UpserterController implements UpserterControllerInterface {
 
   async upsertAuthor(request: UpsertAuthorRequest): Promise<UpsertResponse> {
     return this.upserter
-      .insertAuthor(request)
-      .then(() => ({success: true}))
+      .upsertAuthor(request)
+      .then((result) => ({success: result}))
       .catch(() => ({success: false}));
   }
 
   async upsertBook(request: UpsertBookRequest): Promise<UpsertResponse> {
     return this.upserter
-      .insertBook(request)
-      .then(() => ({success: true}))
+      .upsertBook(request)
+      .then((result) => ({success: result}))
       .catch(() => ({success: false}));
   }
 
@@ -35,8 +35,8 @@ export class UpserterController implements UpserterControllerInterface {
     request: UpsertBookSeriesRequest,
   ): Promise<UpsertResponse> {
     return this.upserter
-      .insertBookSeries(request)
-      .then(() => ({success: true}))
+      .upsertBookSeries(request)
+      .then((result) => ({success: result}))
       .catch(() => ({success: false}));
   }
 }

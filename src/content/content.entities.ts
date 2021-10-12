@@ -1,15 +1,15 @@
 import {Directive, Field, ID, InterfaceType, ObjectType} from '@nestjs/graphql';
 
-export type ContentType = 'BOOK' | 'BOOK_SERIES' | 'AUTHOR';
+export type ContentType = 'book' | 'bookseries' | 'author';
 
 @InterfaceType('SearchContent', {
   resolveType({type}: Content) {
     switch (type) {
-      case 'BOOK':
+      case 'book':
         return BookEntity;
-      case 'BOOK_SERIES':
+      case 'bookseries':
         return BookSeriesEntity;
-      case 'AUTHOR':
+      case 'author':
         return AuthorEntity;
     }
     return null;
@@ -30,7 +30,7 @@ export class AuthorEntity implements Content {
   @Directive('@external')
   id!: string;
 
-  type!: 'AUTHOR';
+  type!: 'author';
 }
 
 @ObjectType('Book', {implements: () => [Content]})
@@ -41,7 +41,7 @@ export class BookEntity implements Content {
   @Directive('@external')
   id!: string;
 
-  type!: 'BOOK';
+  type!: 'book';
 }
 
 @ObjectType('BookSeries', {implements: () => [Content]})
@@ -52,5 +52,5 @@ export class BookSeriesEntity implements Content {
   @Directive('@external')
   id!: string;
 
-  type!: 'BOOK_SERIES';
+  type!: 'bookseries';
 }
