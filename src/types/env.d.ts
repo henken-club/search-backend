@@ -3,5 +3,7 @@
 declare namespace NodeJS {
   interface ProcessEnv extends NodeJS.ProcessEnv {
     readonly NODE_ENV: 'development' | 'production' | 'test';
+
+    readonly MEILISEARCH_HOST: string;
   }
 }
