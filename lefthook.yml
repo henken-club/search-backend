@@ -7,3 +7,6 @@ pre-commit:
     prettier:
       glob: '*.{json,yml,graphql}'
       run: prettier --check {staged_files}
+    protolint:
+      glob: '*.proto'
+      run: protolint lint {staged_files}

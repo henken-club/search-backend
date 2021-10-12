@@ -31,6 +31,16 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - run: yarn run lint:prettier
 
+
+  protolint:
+    name: protolint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: plexsystems/protolint-action@v0.4.0
+        with:
+          configDirectory: ./
+
   cspell:
     name: CSpell
     runs-on: ubuntu-latest
