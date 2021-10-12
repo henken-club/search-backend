@@ -1,6 +1,9 @@
 import {Args, Resolver, Query} from '@nestjs/graphql';
 
-import {SearchArgs, SearchPayload} from './search.dto';
+import {
+  SearchContentsArgs,
+  SearchContentsPayload,
+} from './dto/search-contents.dto';
 import {SearchResultEntity} from './search.entities';
 import {SearchService} from './search.service';
 
@@ -8,8 +11,10 @@ import {SearchService} from './search.service';
 export class SearchResolver {
   constructor(private readonly service: SearchService) {}
 
-  @Query((type) => SearchPayload, {name: 'search'})
-  async search(@Args() args: SearchArgs): Promise<SearchPayload> {
+  @Query((type) => SearchContentsPayload, {name: 'searchContents'})
+  async searchContents(
+    @Args() args: SearchContentsArgs,
+  ): Promise<SearchContentsPayload> {
     const result = await this.service.search(args);
     return {nodes: result.map(({id, type}) => ({content: {id, type}}))};
   }
