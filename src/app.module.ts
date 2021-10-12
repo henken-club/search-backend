@@ -4,6 +4,7 @@ import {ConfigModule, ConfigType} from '@nestjs/config';
 
 import {AppConfig} from './app.config';
 import {SearchResolverModule} from './search/search.resolver.module';
+import {UpserterModule} from './upserter/upserter.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import {SearchResolverModule} from './search/search.resolver.module';
       }),
     }),
     SearchResolverModule,
+    UpserterModule,
   ],
 })
 export class AppModule {}
