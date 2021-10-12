@@ -1,0 +1,14 @@
+import {Injectable} from '@nestjs/common';
+import {ConfigType} from '@nestjs/config';
+import {MeiliSearch} from 'meilisearch';
+
+import {MeiliSearchConfig} from './meilisearch.config';
+
+@Injectable()
+export class MeiliSearchService {
+  private readonly client: MeiliSearch;
+
+  constructor(private readonly config: ConfigType<typeof MeiliSearchConfig>) {
+    this.client = new MeiliSearch({host: this.config.host});
+  }
+}
