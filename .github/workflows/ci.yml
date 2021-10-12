@@ -31,7 +31,6 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - run: yarn run lint:prettier
 
-
   protolint:
     name: protolint
     runs-on: ubuntu-latest
