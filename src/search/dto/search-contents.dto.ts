@@ -24,7 +24,7 @@ export class SearchContentsFilter {
     defaultValue: null,
     nullable: true,
   })
-  type!: SearchContentsFilterType | null;
+  type!: SearchContentsFilterType;
 }
 
 @ArgsType()
@@ -33,7 +33,7 @@ export class SearchContentsArgs {
   query!: string;
 
   @Field(() => Int, {nullable: true, defaultValue: 0})
-  first!: number;
+  skip!: number;
 
   @Field(() => Int)
   limit!: number;
@@ -45,5 +45,5 @@ export class SearchContentsArgs {
 @ObjectType()
 export class SearchContentsPayload {
   @Field(() => [SearchResultEntity])
-  nodes!: SearchResultEntity[];
+  results!: SearchResultEntity[];
 }
