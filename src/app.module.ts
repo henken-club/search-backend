@@ -4,6 +4,7 @@ import {ConfigModule, ConfigType} from '@nestjs/config';
 
 import {AppConfig} from './app.config';
 import {SearchResolverModule} from './search/search.resolver.module';
+import {HealthModule} from './health/health.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import {SearchResolverModule} from './search/search.resolver.module';
         ...config.graphql,
       }),
     }),
+    HealthModule,
     SearchResolverModule,
   ],
 })
