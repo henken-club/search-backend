@@ -18,6 +18,7 @@ WORKDIR /app
 
 COPY tsconfig.json tsconfig.build.json nest-cli.json ./
 COPY src ./src
+COPY scripts ./scripts
 RUN yarn run generate && yarn run build
 
 # runner
