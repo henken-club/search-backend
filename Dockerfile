@@ -18,13 +18,13 @@ WORKDIR /app
 
 COPY tsconfig.json tsconfig.build.json nest-cli.json ./
 COPY src ./src
-RUN npm run build
+RUN yarn run generate && yarn run build
 
 # runner
 FROM node:14.17.6-slim AS runner
 WORKDIR /app
 
-ENV PORT 4000
+ENV PORT 8000
 
 COPY --from=deps-production /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
