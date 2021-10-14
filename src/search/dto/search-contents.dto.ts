@@ -1,6 +1,13 @@
-import { ArgsType, Field, InputType, Int, ObjectType, registerEnumType } from "@nestjs/graphql";
+import {
+  ArgsType,
+  Field,
+  InputType,
+  Int,
+  ObjectType,
+  registerEnumType,
+} from '@nestjs/graphql';
 
-import { SearchResultEntity } from "../search.entities";
+import {SearchResultEntity} from '../search.entities';
 
 export enum SearchContentsFilterType {
   AUTHOR,
@@ -8,10 +15,10 @@ export enum SearchContentsFilterType {
   BOOK_SERIES,
 }
 registerEnumType(SearchContentsFilterType, {
-  name: "SearchContentsFilterType",
+  name: 'SearchContentsFilterType',
 });
 
-@InputType("SearchContentsFilter")
+@InputType('SearchContentsFilter')
 export class SearchContentsFilter {
   @Field((type) => SearchContentsFilterType, {
     defaultValue: null,
@@ -25,7 +32,7 @@ export class SearchContentsArgs {
   @Field(() => String)
   query!: string;
 
-  @Field(() => Int, { nullable: true, defaultValue: 0 })
+  @Field(() => Int, {nullable: true, defaultValue: 0})
   skip!: number;
 
   @Field(() => Int)

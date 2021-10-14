@@ -1,10 +1,20 @@
 {
   "incremental": true,
   "typescript": {
+    "lineWidth": 80,
     "semiColons": "always",
     "indentWidth": 2,
-    "quoteStyle": "alwaysDouble",
-    "spaceSurroundingProperties": true
+    "quoteStyle": "preferSingle",
+    "spaceSurroundingProperties": false,
+    "useBraces": "preferNone",
+    "operatorPosition": "sameLine",
+    "conditionalExpression.operatorPosition": "nextLine",
+    "arrowFunction.bracePosition": "maintain",
+    "importDeclaration.spaceSurroundingNamedImports": false,
+    "jsx.quoteStyle": "preferDouble",
+    "parentheses.preferSingleLine": false,
+    "taggedTemplate.spaceBeforeLiteral": false,
+    "typeLiteral.trailingCommas": "onlyMultiLine"
   },
   "json": {},
   "markdown": {},
