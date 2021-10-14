@@ -5,8 +5,8 @@ import {map, Observable} from 'rxjs';
 import {ContentType} from '~/content/content.entities';
 import {
   SearchAllResponse_SearchResultType,
-  SearcherClient,
   SEARCHER_SERVICE_NAME,
+  SearcherClient,
 } from '~/protogen/search/searcher';
 
 @Injectable()
@@ -14,8 +14,7 @@ export class SearchService implements OnModuleInit {
   private searcher!: SearcherClient;
 
   constructor(
-    @Inject('SearchGrpcClient')
-    private readonly grpcClient: ClientGrpc,
+    @Inject('SearchGrpcClient') private readonly grpcClient: ClientGrpc,
   ) {}
 
   onModuleInit() {
@@ -26,9 +25,9 @@ export class SearchService implements OnModuleInit {
 
   searchAll(
     query: string,
-    {skip, limit}: {skip: number; limit: number},
+    {skip, limit}: {skip: number; limit: number;},
   ): Observable<{
-    results: ({id: string; type: ContentType} | null)[];
+    results: ({id: string; type: ContentType;} | null)[];
   }> {
     return this.searcher.searchAll({query, skip, limit}).pipe(
       map(({results}) => ({
@@ -48,17 +47,17 @@ export class SearchService implements OnModuleInit {
     );
   }
 
-  searchAuthors(query: string, {skip, limit}: {skip: number; limit: number}) {
+  searchAuthors(query: string, {skip, limit}: {skip: number; limit: number;}) {
     return this.searcher.searchAuthor({query, skip, limit});
   }
 
-  searchBooks(query: string, {skip, limit}: {skip: number; limit: number}) {
+  searchBooks(query: string, {skip, limit}: {skip: number; limit: number;}) {
     return this.searcher.searchBook({query, skip, limit});
   }
 
   searchBookSeries(
     query: string,
-    {skip, limit}: {skip: number; limit: number},
+    {skip, limit}: {skip: number; limit: number;},
   ) {
     return this.searcher.searchBookSeries({query, skip, limit});
   }

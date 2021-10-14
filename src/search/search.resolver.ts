@@ -1,5 +1,5 @@
 import {BadRequestException} from '@nestjs/common';
-import {Args, Resolver, Query} from '@nestjs/graphql';
+import {Args, Query, Resolver} from '@nestjs/graphql';
 import {map, Observable} from 'rxjs';
 
 import {
@@ -20,12 +20,12 @@ export class SearchResolver {
   searchContents(
     @Args() {filter: {type}, skip, limit, query}: SearchContentsArgs,
   ): Observable<SearchContentsPayload> {
-    if (type === null)
+    if (type === null) {
       return this.service.searchAll(query, {skip, limit}).pipe(
         map((val) => ({
           results: val.results
             .filter(
-              (value): value is {id: string; type: ContentType} =>
+              (value): value is {id: string; type: ContentType;} =>
                 value !== null,
             )
             .map(({id, type}) => ({
@@ -33,6 +33,7 @@ export class SearchResolver {
             })),
         })),
       );
+    }
     switch (type) {
       case SearchContentsFilterType.AUTHOR:
         return this.service.searchAuthors(query, {skip, limit}).pipe(
