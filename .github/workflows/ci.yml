@@ -20,7 +20,7 @@ jobs:
       - run: yarn run lint:eslint
 
   dprint:
-    name: Prettier
+    name: dprint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
