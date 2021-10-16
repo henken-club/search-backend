@@ -1,8 +1,8 @@
 import {Controller, Get} from '@nestjs/common';
 import {
-  HealthCheckService,
-  HealthCheck,
   GRPCHealthIndicator,
+  HealthCheck,
+  HealthCheckService,
 } from '@nestjs/terminus';
 
 @Controller('health')
