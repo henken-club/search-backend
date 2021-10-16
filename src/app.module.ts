@@ -3,8 +3,8 @@ import {ConfigModule, ConfigType} from '@nestjs/config';
 import {GraphQLFederationModule} from '@nestjs/graphql';
 
 import {AppConfig} from './app.config';
-import {SearchResolverModule} from './search/search.resolver.module';
 import {HealthModule} from './health/health.module';
+import {SearchResolverModule} from './search/search.resolver.module';
 
 @Module({
   imports: [
